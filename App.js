@@ -1,21 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
+import WelcomeScreen from './app/screens/WelcomeScreen';
+import ViewImageScreen from './app/screens/ViewImageScreen';
+import AppText from './app/components/AppText';
+import AppButton from './app/components/AppButton';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    //   {/* <AppText>I love React Native!</AppText> */}
+    //   <AppButton title='login' onPress={() => console.log('tapped')} />
+    // </View>
+    <WelcomeScreen />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
