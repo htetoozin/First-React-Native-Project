@@ -1,19 +1,6 @@
 import React, { useState } from 'react';
-import { FlatList, View, Text, TextInput, Switch } from 'react-native';
-import WelcomeScreen from './app/screens/WelcomeScreen';
-import ViewImageScreen from './app/screens/ViewImageScreen';
-import AppText from './app/components/AppText';
-import AppButton from './app/components/AppButton';
-import Card from './app/components/Card';
-import ListingDetailsScreen from './app/components/ListingDetailsScreen';
-import MessagesScreen from './app/screens/MessagesScreen';
-import Screen from './app/components/Screen';
-import Icon from './app/components/Icon';
 import ListItem from './app/components/ListItem';
-import AccountScreen from './app/screens/AccountScreen';
-import ListingsScreen from './app/screens/ListingsScreen';
-import AppTextInput from './app/components/AppTextInput';
-import AppPicker from './app/components/AppPicker';
+import ListingEditScreen from './app/screens/ListingEditScreen';
 import LoginScreen from './app/screens/LoginScreen';
 
 export default function App() {
@@ -39,7 +26,7 @@ export default function App() {
     //   {isNew}
     //   <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
     // </Screen>
-    <LoginScreen />
+    // <LoginScreen />
     // <Screen>
     //   {/* <AppPicker
     //     selectedItem={category}
@@ -51,5 +38,6 @@ export default function App() {
     //   <AppTextInput icon='email' placeholder='Email' /> */}
 
     // </Screen>
+    <ListItem />
   );
 }
