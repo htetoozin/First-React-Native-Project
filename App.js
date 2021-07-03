@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
-import { Text } from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { Button, Text } from 'react-native';
 import Screen from './app/components/Screen';
 
-const Tweet = () => {
+const Link = () => {
+  const navigation = useNavigation();
+  return (
+    <Button title='Click' onPress={() => navigation.navigate('TweetDetail')} />
+  );
+};
+
+const Tweet = ({ navigation }) => {
   return (
     <Screen>
       <Text>Tweet</Text>
+      {/* <Button title='View Teet' onPress={() => navigation.navigate('Tweet')} /> */}
+      <Link />
     </Screen>
   );
 };
@@ -15,7 +24,7 @@ const Tweet = () => {
 const TweetDetail = () => {
   return (
     <Screen>
-      <Tweet>Tweet Detail</Tweet>
+      <Text>Tweet Detail</Text>
     </Screen>
   );
 };
@@ -23,7 +32,7 @@ const TweetDetail = () => {
 const Stack = createStackNavigator();
 
 const StackNavigator = () => (
-  <Stack.Navigator initialRouteName='Tweet'>
+  <Stack.Navigator>
     <Stack.Screen name='Tweet' component={Tweet} />
     <Stack.Screen name='TweetDetail' component={TweetDetail} />
   </Stack.Navigator>
