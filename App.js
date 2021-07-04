@@ -4,6 +4,7 @@ import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Button, Text } from 'react-native';
 import Screen from './app/components/Screen';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Link = () => {
   const navigation = useNavigation();
@@ -68,9 +69,32 @@ const Account = () => (
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => (
-  <Tab.Navigator>
-    <Tab.Screen name='Feed' component={Tweet} />
-    <Tab.Screen name='account' component={Account} />
+  <Tab.Navigator
+    tabBarOptions={{
+      activeBackgroundColor: 'tomato',
+      activeTintColor: 'white',
+      inactiveBackgroundColor: '#eee',
+      inactiveTintColor: 'black',
+    }}
+  >
+    <Tab.Screen
+      name='Feed'
+      component={Tweet}
+      options={{
+        tabBarIcon: ({ size, color }) => (
+          <MaterialCommunityIcons name='home' size={size} color={color} />
+        ),
+      }}
+    />
+    <Tab.Screen
+      name='account'
+      component={Account}
+      options={{
+        tabBarIcon: ({ size, color }) => (
+          <MaterialCommunityIcons name='apps' size={size} color={color} />
+        ),
+      }}
+    />
   </Tab.Navigator>
 );
 
