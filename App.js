@@ -5,7 +5,7 @@ import navigationTheme from './app/navigation/navigationTheme';
 
 export default function App() {
   return (
-    <NavigationContainer theme={navigationTheme}>
+    <NavigationContainer theme={navigationTheme} mode='modal'>
       <AppNavigator />
     </NavigationContainer>
   );
