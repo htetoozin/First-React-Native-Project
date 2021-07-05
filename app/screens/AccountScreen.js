@@ -5,6 +5,7 @@ import Icon from '../components/Icon';
 import ListItem from '../components/ListItem';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
+import { useNavigation } from '@react-navigation/native';
 
 const menuItems = [
   {
@@ -20,10 +21,13 @@ const menuItems = [
       name: 'email',
       backgroundColor: colors.secondary,
     },
+    targetScreen: 'Messages',
   },
 ];
 
 const AccountScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -47,6 +51,7 @@ const AccountScreen = () => {
                   backgroundColor={item.icon.backgroundColor}
                 />
               }
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
         />
