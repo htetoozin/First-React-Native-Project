@@ -17,7 +17,7 @@ const ListingsScreen = () => {
   const getListingsApi = useApi(listingsApi.getListings);
 
   useEffect(() => {
-    getListingsApi.request(1, 2, 3);
+    getListingsApi.request();
   }, []);
 
   return (

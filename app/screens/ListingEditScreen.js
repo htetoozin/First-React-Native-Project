@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import CategoryPickerItem from '../components/CategoryPickerItem';
 import * as Yup from 'yup';
 import * as Location from 'expo-location';
+import listingsApi from '../api/listings';
 
 import {
   AppForm,
@@ -81,6 +82,14 @@ const categories = [
 
 const ListingEditScreen = () => {
   const location = useLocation();
+
+  const handleSubmit = async (listing) => {
+    const result = await listingsApi.addListing({ ...listing, location });
+
+    if (!result.ok) return alert('Could not save the listing.');
+    alert('Success');
+  };
+
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -91,7 +100,7 @@ const ListingEditScreen = () => {
           category: null,
           images: [],
         }}
-        onSubmit={(values) => console.log(location)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name='images' />
