@@ -1,19 +1,21 @@
 import React from 'react';
-import { Button } from 'react-native';
+import { AsyncStorage, Button } from 'react-native';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import AppNavigator from './app/navigation/AppNavigator';
 import navigationTheme from './app/navigation/navigationTheme';
-import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 
 export default function App() {
-  // NetInfo.addEventListener((netInfo) => console.log(netInfo));
+  const demo = async () => {
+    try {
+      await AsyncStorage.setItem('person', JSON.stringify({ id: 1 }));
+      const value = await AsyncStorage.getItem('person');
+      const person = JSON.parse('person');
 
-  const netInfo = useNetInfo();
-  console.log('netInfo ', netInfo);
+      console.log('person ', person);
+    } catch (error) {}
+  };
 
-  return (
-    <Button disabled={!netInfo.isInternetReachable} title='network button' />
-  );
+  return null;
   // return (
   //   <NavigationContainer theme={navigationTheme} mode='modal'>
   //     <AppNavigator />
