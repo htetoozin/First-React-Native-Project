@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import ListItemSperatorComponent from '../components/ListItemSperator';
 import Icon from '../components/Icon';
@@ -6,6 +6,7 @@ import ListItem from '../components/ListItem';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 import { useNavigation } from '@react-navigation/native';
+import AuthContext from '../auth/context';
 
 const menuItems = [
   {
@@ -28,12 +29,14 @@ const menuItems = [
 const AccountScreen = () => {
   const navigation = useNavigation();
 
+  const { user } = useContext(AuthContext);
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title='Htet Oo Zin'
-          subTitle='hoz@gmail.com'
+          title={user.name}
+          subTitle={user.email}
           image={require('../assets/mosh.jpg')}
         />
       </View>
