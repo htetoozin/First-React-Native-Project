@@ -1,6 +1,6 @@
 import client from './client';
 
-const endpoint = '/listings';
+const endpoint = '/my/listings';
 
 const getListings = () => client.get(endpoint);
 
