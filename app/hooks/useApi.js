@@ -11,10 +11,10 @@ const useApi = (apiFunc) => {
     // console.log('respone ', response.data());
 
     setLoading(false);
-    if (!response.ok) return setError(true);
 
-    setError(false);
+    setError(!response.ok);
     setData(response.data);
+    return response;
   };
 
   return {
