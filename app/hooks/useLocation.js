@@ -7,7 +7,7 @@ const useLocation = () => {
   const getLocation = async () => {
     try {
       const { granted } = await Location.requestForegroundPermissionsAsync();
-      console.log('granted ', granted);
+      //console.log('granted ', granted);
 
       if (!granted) return;
       const {

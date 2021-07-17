@@ -5,7 +5,7 @@ const prefix = 'cache';
 const expiryInMinutes = 5;
 
 const store = async (key, value) => {
-  console.log('store ', 'key ', key, 'value ', value);
+  // console.log('store ', 'key ', key, 'value ', value);
   try {
     const item = {
       value,

@@ -30,7 +30,7 @@ const RegisterScreen = () => {
 
   const handleSubmit = async (userInfo) => {
     const result = await registerApi.request(userInfo);
-    console.log('result ', result);
+    //console.log('result ', result);
 
     if (!result.ok) {
       if (result.data) {
